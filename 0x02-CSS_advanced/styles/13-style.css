@@ -42,7 +42,7 @@ a[href^=\#]{
     text-decoration: none;
 }
 a:visited{
-    font-style: italic;
+    font-family: italic;
 }
 a:hover{
     text-decoration: underline;
