@@ -23,7 +23,7 @@
     --section-title-color: var(--color-black);
 }
 * {
-    box-sizing: border-box;
+    box-sizing: initial;
 }
 html{
     scroll-behavior: smooth;
