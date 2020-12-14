@@ -134,9 +134,9 @@ a:active{
     display: var(--nav-item-display);
     margin: var(--nav-item-margin);
 }
-.nav .nav-link{
+.nav.nav-link{
     display: block;
-    padding: 0.5rem 0rem 0.5rem 0rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
 }
 .nav .nav-link:hover{
     color: var(--nav-item-link-hover);
