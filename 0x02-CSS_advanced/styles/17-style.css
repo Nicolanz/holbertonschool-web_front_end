@@ -84,10 +84,10 @@ a:active{
 }
 .section-body{
     padding: var(--section-body-padding);
-    line-height: var(--section-footer-align);
 }
 .section-footer{
     padding: var(--section-footer-padding);
+    line-height: var(--section-footer-align);
 }
 .section-title{
     font-family: var(--font-family-title);
