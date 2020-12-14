@@ -135,7 +135,7 @@ a:active{
     margin: var(--nav-item-margin);
 }
 .nav .nav-link{
-    display: block;
+    display: inline;
     padding: 8px 1rem 8px 1rem;
 }
 .nav .nav-link:hover{
