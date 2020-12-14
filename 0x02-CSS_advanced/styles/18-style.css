@@ -136,10 +136,10 @@ a:active{
 }
 .nav .nav-link{
     display: block;
-    padding-bottom: 1.5rem;
+    padding-bottom: 2rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    padding-top: 1.5rem;
+    padding-top: 2rem;
 }
 .nav .nav-link:hover{
     color: var(--nav-item-link-hover);
