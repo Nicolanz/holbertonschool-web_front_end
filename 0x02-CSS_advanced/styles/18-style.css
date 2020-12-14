@@ -136,7 +136,7 @@ a:active{
 }
 .nav .nav-link{
     display: block;
-    padding: 50% 1rem 50% 1rem;
+    padding: 0;
 }
 .nav .nav-link:hover{
     color: var(--nav-item-link-hover);
