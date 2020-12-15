@@ -170,5 +170,5 @@ ul.row{
 .row::after{
     content: '<ul class="row"></ul>';
     display: table;
-    float: none;
+    clear: both;
 }
