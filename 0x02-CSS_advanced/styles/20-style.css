@@ -167,8 +167,7 @@ ul.row{
 .footer ul{
     text-align: right;
 }
-ul.row::after{
-    content: none;
-    display: grid;
+.row::after{
+    display: table;
     float: none;
 }
