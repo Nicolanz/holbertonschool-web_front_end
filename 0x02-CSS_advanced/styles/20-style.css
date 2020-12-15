@@ -166,6 +166,8 @@ ul.row{
 .footer ul{
     text-align: right;
 }
-.grid{
+.row::after{
+    content: none;
     display: grid;
+    float: none;
 }
