@@ -172,8 +172,7 @@ ul.row{
     display: table;
     clear: both;
 }
-*[class^="col-"]{
+[class^="col-"]:not(.col-1-3, .col-1-3){
     float: left;
     padding: 0.5rem;
-    
 }
