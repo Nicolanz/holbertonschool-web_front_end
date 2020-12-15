@@ -183,6 +183,6 @@ ul.row{
 .social-link{
     display: block;
 }
-.social-link[svg]{
-    color: blue;
+.social-link > svg{
+    color: var(--text-color);
 }
