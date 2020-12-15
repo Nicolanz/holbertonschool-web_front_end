@@ -49,7 +49,7 @@ body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:c
     --nav-item-margin: 0 0 3rem 0;
     --nav-item-link-hover: var(--color-primary);
     --section-tagline-margin: 0;
-    background: vat(--color-black);
+    background: var(--color-black);
 }
 html{
     scroll-behavior: smooth;
