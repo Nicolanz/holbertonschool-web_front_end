@@ -166,3 +166,6 @@ ul.row{
 .footer ul{
     text-align: right;
 }
+.grid{
+    display: grid;
+}
