@@ -236,7 +236,6 @@ ul.row{
     color: var(--color-primary);
 }
 .section-hero{
-    display: flex;
     width: 90rem;
     height: auto;
 }
