@@ -304,12 +304,17 @@ ul.row{
     height: 100%;
     position: relative;
 }
-.card-work a, .card-title a{
+.card-work .card-title, a{
     display: block;
     text-decoration: none;
     padding-top: 45%;
 }
 .card-title a::after, .card-work a::after{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    content: "";
 }
 .card-work:hover .card-title{
     opacity: 1;
