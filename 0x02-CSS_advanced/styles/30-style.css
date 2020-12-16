@@ -279,7 +279,7 @@ ul.row{
 }
 .card-work .card-outer{
     position: relative;
-    overflow: hidden;
+    overflow: auto;
 }
 .card-work .card-image{
     height: 30rem;
