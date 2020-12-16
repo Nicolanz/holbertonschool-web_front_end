@@ -236,6 +236,7 @@ ul.row{
     color: var(--color-primary);
 }
 .section-hero{
+    background-size: length;
     width: 90rem;
     height: auto;
 }
