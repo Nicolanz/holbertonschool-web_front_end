@@ -1,0 +1,11 @@
+/* Styles to tags */
+@mixin styles {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+body{
+    @include styles;
+}
+div{
+    @include styles;
+}
