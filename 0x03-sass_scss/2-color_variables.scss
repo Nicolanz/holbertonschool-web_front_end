@@ -1,0 +1,13 @@
+/* Assigns some colors */
+$txt-color: #3D3D3D;
+$bg-color: #6D6D6D;
+body{
+    color: $txt-color;
+    background-color: $bg-color;
+}
+p{
+    color: $txt-color;
+}
+h2{
+    background-color: $bg-color;
+}
