@@ -1,12 +1,11 @@
 /* Styles to tags */
-@mixin styles {
-    margin-left: 10px;
-    margin-right: 10px;
+@mixin styles($left, $right) {
+    margin-left: $left ;
+    margin-right: $right ;
 }
 body{
-    @include styles;
+    @include styles(10px, 10px);
 }
 div{
-    margin-left: 15px;
-    margin-right: 15px;
+    @include styles(15px, 15px);
 }
