@@ -1,0 +1,9 @@
+/* Anvanced #1 */
+@use "sass:string";
+$sizes: '10%', '50%', '80%';
+@each $size in $sizes {
+  .icon-#{$size} {
+    font-size: string.unquote("10px");
+  }
+}
+
