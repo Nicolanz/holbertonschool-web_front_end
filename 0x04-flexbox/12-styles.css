@@ -543,19 +543,18 @@
     z-index: 2;
   }
 
-.main-article {
+  .main-article {
     padding: 5rem 0;
-}
-
-/* Post
+  }
+  /* Post
     ============================= */
-.post {
+  .post {
     display: flex;
-}
-.post-content {
+  }
+  .post-content {
     width: 100%;
-}
-.post-aside {
-    order: -1;
-    min-width: 20%;
-}
+  }
+  .post-aside {
+      order: -1;
+      min-width: 20%;
+  }
