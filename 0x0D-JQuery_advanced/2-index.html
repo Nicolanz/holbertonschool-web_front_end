@@ -4,20 +4,19 @@
     <head>
 
         <meta charset="utf-8" />
-        <title>Task 0</title>
+        <title>Task 2</title>
 
     </head>
 
     <body>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
         <script type="application/javascript">
-            window.onload = () => {
-                if (window.jQuery) {  
-                    console.log("jQuery has been loaded correctly");
-                } else {
-                    console.log(" jQuery has not been loaded correctly");
-                }
+            function createFamilyTree(){
+                $("body").append(
+                        "<table><tr><th>Firstname</th><th>Lastname</th></tr><tr><td>Guillaume</td><td>Salva</td></tr><tr><td>Paulette</td><td>Salva</td></tr><tr><td>Antoine</td><td>Salva</td></tr></table>"
+                    );
             }
+            createFamilyTree();
         </script>
     </body>
 
