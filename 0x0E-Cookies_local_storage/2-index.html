@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-index</title>
+</head>
+<body>
+    <h1>Login to the website</h1>
+    <input id="firstname" placeholder="firstname" type="text"><input id="email" placeholder="email" type="text">
+    <button onclick="setCookies()">Log me in</button>
+    <h1>Cookies</h1>
+    <button onclick="showCookies()">Show the cookies</button>
+    
+    <script type="application/javascript">
+
+        // Return an object of the whole cookes
+        function cookieObject(){
+            const cookies = document.cookie.split(';').map(function(c) {
+                return c.trim().split('=').map(decodeURIComponent);
+                }).reduce(function(a, b) {
+                try {
+                    a[b[0]] = JSON.parse(b[1]);
+                } catch (e) {
+                    a[b[0]] = b[1];
+                }
+                return a;
+            }, {});
+            return cookies;
+        }
+
+        // Set the cookies of the inputs
+        function setCookies(){
+            day14 = new Date();
+            day14 = day14.setDate(day14.getDate() + 10);
+            fecha = new Date(day14);
+            fecha = fecha.toUTCString();
+            document.cookie = "firstname=" + document.getElementById("firstname").value + "; expires=" + fecha;
+            document.cookie = "email=" + document.getElementById("email").value + "; expires=" + fecha;
+        }
+
+        // Show the cookies in a p tag
+        function showCookies(){
+            if (document.contains(document.getElementsByTagName("p")[0])) {
+                document.getElementsByTagName("p")[0].remove();
+            }
+            cooks = cookieObject()
+            var paragragh = document.createElement("p");
+            document.getElementsByTagName("body")[0].appendChild(paragragh);
+            span = document.createElement("span");
+            text = document.createTextNode(`Email: ${cooks.email.toUpperCase()} - Firstname: ${cooks.firstname.toUpperCase()}`);
+            span.appendChild(text);
+            paragragh.appendChild(span);
+        }
+
+        // function to get the cookies
+        function getCookie(name){
+            cookieObj = cookieObject();
+
+            if (cookieObj.firstname === name){
+                return(cookieObj.firstname);
+            } else {
+                return("");
+            }
+        }
+
+    </script>
+</body>
+</html>
