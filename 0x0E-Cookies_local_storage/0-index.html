@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+</head>
+<body>
+    <h1>Login to the website</h1>
+    <input id="firstname" placeholder="firstname" type="text"><input id="email" placeholder="email" type="text">
+    <button onclick="setCookies()">Log me in</button>
+    <h1>Cookies</h1>
+    <button onclick="showCookies()">Show the cookies</button>
+    <script type="application/javascript">
+        function setCookies(){
+            document.cookie = "firstname=" + document.getElementById("firstname").value;
+            document.cookie = "email=" + document.getElementById("email").value;
+        }
+        function convertCookie(str){
+            str.split('; ').reduce((prev, current) => {
+            const [name, value] = current.split('=');
+            prev[name] = value;
+            return prev
+            }, {});
+        }
+
+        function showCookies(){
+            if (document.contains(document.getElementsByTagName("p")[0])) {
+                document.getElementsByTagName("p")[0].remove();
+            }
+            const cooks = document.cookie.split(';').map(function(c) {
+                return c.trim().split('=').map(decodeURIComponent);
+                }).reduce(function(a, b) {
+                try {
+                    a[b[0]] = JSON.parse(b[1]);
+                } catch (e) {
+                    a[b[0]] = b[1];
+                }
+                return a;
+             }, {});
+            var paragragh = document.createElement("p");
+            document.getElementsByTagName("body")[0].appendChild(paragragh);
+            
+            for(const property in cooks){
+                span = document.createElement("li")
+                text = document.createTextNode(`${property}: ${cooks[property]}`);
+                span.appendChild(text)
+                document.getElementsByTagName("p")[0].appendChild(span);
+                console.log(`${property}: ${cooks[property]}`);
+            }
+        }
+    </script>
+</body>
+</html>
