@@ -1,0 +1,33 @@
+.btn-primary{
+    border: 1px solid #E0003C;
+    background: #E0003C;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active{
+    border: 1px solid #E0003C;
+    background: #BC1340;
+}
+.btn-outline-primary{
+    border: 1px solid #E0003C;
+    color: #E0003C;
+}
+.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active{
+    border: 1px solid #E0003C;
+    background: #BC1340;
+    color: white !important;
+}
+a, a:hover, a:focus{
+    color: #E0003C !important;
+}
+.card{
+    border: 1px solid #E0003C;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+.card .card-header{
+    background: #E0003C;
+    color: white;
+}
+.text-muted{
+    color: #8C8C8C;
+}
+
