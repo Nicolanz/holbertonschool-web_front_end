@@ -1,3 +1,6 @@
+.border-bottom{
+    border-bottom: 1px solid #E0003C !important;
+}
 .btn-primary{
     border: 1px solid #E0003C;
     background: #E0003C;
