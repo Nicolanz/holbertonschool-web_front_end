@@ -31,6 +31,6 @@ a, a:hover, a:focus{
     color: white;
 }
 .text-muted{
-    color: #8C8C8C;
+    color: #8C8C8C !important;
 }
 
