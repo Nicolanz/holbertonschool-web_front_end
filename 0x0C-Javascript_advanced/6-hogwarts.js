@@ -10,15 +10,18 @@ class studentHogwarts {
         this.#name = newName;
     }
     rewardStudent(){
-        this.#changeScoreBy(1)
+        this.#changeScoreBy(1);
     }
     penalizeStudent(){
-        this.#changeScoreBy(-1)
+        this.#changeScoreBy(-1);
     }
     getScore(){
         return this.#name + ": " + this.privateScore;
     }
 }
+
+exports = { studentHogwarts }
+
 harry = new studentHogwarts;
 harry.setName("Harry");
 harry.rewardStudent();
