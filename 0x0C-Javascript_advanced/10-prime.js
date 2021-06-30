@@ -1,4 +1,3 @@
-
 var start = performance.now()
 function countPrimeNumbers(){
     counter = 0;
