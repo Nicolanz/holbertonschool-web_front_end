@@ -6,4 +6,4 @@ const roomDimensions = {
         return this.width * this.length;
     }
 }
-var boundGetArea = roomDimensions.getArea();
+var boundGetArea = roomDimensions.getArea.bind(roomDimensions);
