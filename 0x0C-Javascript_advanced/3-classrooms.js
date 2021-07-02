@@ -13,3 +13,4 @@ function createClassRoom(numbersOfStudents){
     return students;
 }
 const classRoom = createClassRoom(10);
+
