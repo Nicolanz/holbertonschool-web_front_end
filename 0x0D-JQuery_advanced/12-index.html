@@ -70,7 +70,10 @@
                     type: 'DELETE',
                     success: function(result) {
                         $("#" + id).remove();
-                    }
+                    },
+                    error: function (xhr, status) {
+                        alert("Post was not deleted");
+                    },
                 });
             }
 
