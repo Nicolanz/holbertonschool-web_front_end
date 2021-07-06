@@ -13,11 +13,11 @@
         <script type="application/javascript">
 
             function addPostRow(data){
-                $("body").append("<p id="+ data['id']+"><span id='delete'>(delete)</span><span>Post created with id " + data['id'] + 
+                $("body").append("<p id='row-"+ data['id']+"'><span id='delete_"+ data['id']+"'>(delete)</span><span>Post created with id " + data['id'] + 
                     ", title: " + data['title'] + 
                     ", author: " + data['author'] + "</span></p>");
                 
-                $("#delete").click(function(){
+                $("#delete_" + data['id']).click(function(){
                     deletePost(data['id']);
                 });
             }
@@ -69,7 +69,7 @@
                     url: 'http://localhost:3000/posts/' + id,
                     type: 'DELETE',
                     success: function(result) {
-                        $("#" + id).remove();
+                        $("#row-"+ id ).remove();
                     },
                     error: function (xhr, status) {
                         alert("Post was not deleted");
