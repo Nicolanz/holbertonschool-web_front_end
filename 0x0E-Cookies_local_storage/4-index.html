@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-index.html</title>
+
+    <!-- js-cookie cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js"></script>
+</head>
+<body>
+
+    <!-- script -->
+    <script type="application/javascript">
+       
+        // function to add the first form
+        function addForm(){
+
+            var element = document.getElementsByTagName("body")[0];
+            var div = document.createElement("div");
+            var title = document.createElement("h2");
+            var input1 = document.createElement("input");
+            var input2 = document.createElement("input");
+            var btn1 = document.createElement("button");
+
+            div.id = "div_form";
+            
+            title.appendChild(document.createTextNode(`Login to the website`));
+
+            input1.type = "text";
+            input1.id = "firstname";
+            input1.placeholder = "firstname"
+
+            input2.type = "text";
+            input2.id = "email";
+            input2.placeholder = "email"
+
+            btn1.appendChild(document.createTextNode(`Login me in`));
+            btn1.onclick = function(){
+                setCookiesAndShowWelcomeMessage();
+            }
+
+            div.appendChild(title);
+            div.appendChild(input1);
+            div.appendChild(input2);
+            div.appendChild(btn1);
+            element.appendChild(div);
+
+        }
+
+        // function to show the form
+        function showForm(){ 
+            div_welcome = document.getElementById("div_welcome");
+            div_form = document.getElementById("div_form");
+
+            if (div_form == null)
+            {
+                addForm();
+                div_form = document.getElementById("div_form");
+            }
+            if (div_welcome != null){
+                div_welcome.parentNode.removeChild(div_welcome);
+            }
+            div_form.style.display = "block";
+        }
+
+        // function to hide the form
+        function hideForm(){
+            div_form = document.getElementById("div_form");
+            if (div_form != null)
+                div_form.style.display = "none";
+        }
+
+        // function to delete the cookies and show the form
+        function deleteCookiesAndShowForm(){
+
+            Cookies.remove('firstname', {path: '4-index.html'});
+            Cookies.remove('email', {path: '4-index.html'});
+
+            showForm();
+        }
+
+        // function to show the welcome message or form
+        function showWelcomeMessageOrForm(){
+            firstname = Cookies.get('firstname');
+            email = Cookies.get('email');
+
+            if (firstname == undefined || email == undefined)
+                showForm();
+            else {
+                hideForm();
+                var element = document.getElementsByTagName("body")[0];
+                var div = document.createElement("div");
+                var title = document.createElement("h1");
+                var link = document.createElement("a");
+                
+                div.id = "div_welcome";
+                
+                link.onclick = function(){
+                    deleteCookiesAndShowForm();
+                }
+                link.appendChild(document.createTextNode(`(logout)`));
+                link.style.textDecoration = "none";
+                link.style.fontWeight = "normal";
+                link.style.fontFamily = "italic";
+                link.style.marginRight = "10px";
+
+                title.appendChild(document.createTextNode(`Welcome: ${firstname} `));
+                
+                title.appendChild(link);
+                div.appendChild(title);
+                element.appendChild(div);
+            }
+        }
+
+        // new function to set cookies and call showWelcomeMessageOrForm
+        function setCookiesAndShowWelcomeMessage(){
+            Cookies.set('firstname', document.getElementById("firstname").value, { expires: 10, path: '4-index.html' });
+            Cookies.set('email', document.getElementById("email").value, { expires: 10, path: '4-index.html' });
+            showWelcomeMessageOrForm();
+        }
+
+        // function to show cookies
+        function showCookies(){
+            // creating tags            
+            var element = document.getElementsByTagName("body")[0];
+            var p = document.createElement("p");
+
+            // getting cookies
+            firstname = Cookies.get('firstname');
+            email = Cookies.get('email');
+
+            // creating text node
+            text = document.createTextNode(`Email: ${email} - Firstname: ${firstname}`);
+
+            // appending tags
+            p.appendChild(text);
+            element.appendChild(p);
+        }
+
+        showWelcomeMessageOrForm();
+    </script>
+</body>
+</html>
