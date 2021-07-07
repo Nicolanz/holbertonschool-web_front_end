@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5-index.html</title>
+    <title>6-index.html</title>
 </head>
 <body>
     <script type="application/javascript">
@@ -13,7 +13,7 @@
         let availableItems = ["Shampoo", "Soap", "Sponge", "Water"];
         var element = document.getElementsByTagName("body")[0];
 
-        // check if localStorage is available in my browser
+        // check if sessionStorage is available in my browser
         if (typeof(Storage) !== 'undefined') {
             createStore();
             displayCart();
@@ -23,7 +23,7 @@
 
         // function to add item to cart
         function addItemToCart(item) {
-            localStorage.setItem( item, true);
+            sessionStorage.setItem(item, true);
         }
 
         // function to create store
@@ -46,8 +46,8 @@
 
         // function to display the cart
         function displayCart () {
-            if (!localStorage.length <= 0){
-                text = document.createTextNode(`You previously had ${localStorage.length} items in your cart`);
+            if (!sessionStorage.length <= 0){
+                text = document.createTextNode(`You previously had ${sessionStorage.length} items in your cart`);
                 p = document.createElement("p");
                 p.appendChild(text);
                 element.appendChild(p);
