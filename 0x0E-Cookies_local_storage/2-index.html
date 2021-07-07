@@ -4,65 +4,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2-index</title>
+    <title>2-index.html</title>
 </head>
 <body>
+
     <h1>Login to the website</h1>
-    <input id="firstname" placeholder="firstname" type="text"><input id="email" placeholder="email" type="text">
+
+    <!-- input tags wuth type='text' -->
+    <input id="firstname" placeholder="firstname" type="text">
+    <input id="email" placeholder="email" type="text">
+
+    <!-- buttons and cookies title -->
     <button onclick="setCookies()">Log me in</button>
     <h1>Cookies</h1>
     <button onclick="showCookies()">Show the cookies</button>
-    
+
+    <!-- script -->
     <script type="application/javascript">
-
-        // Return an object of the whole cookes
-        function cookieObject(){
-            const cookies = document.cookie.split(';').map(function(c) {
-                return c.trim().split('=').map(decodeURIComponent);
-                }).reduce(function(a, b) {
-                try {
-                    a[b[0]] = JSON.parse(b[1]);
-                } catch (e) {
-                    a[b[0]] = b[1];
-                }
-                return a;
-            }, {});
-            return cookies;
-        }
-
-        // Set the cookies of the inputs
+       
+       // function to set cookies
         function setCookies(){
-            day14 = new Date();
-            day14 = day14.setDate(day14.getDate() + 10);
-            fecha = new Date(day14);
+            day10 = new Date();
+            day10 = day10.setDate(day10.getDate() + 10);
+            fecha = new Date(day10);
             fecha = fecha.toUTCString();
             document.cookie = "firstname=" + document.getElementById("firstname").value + "; expires=" + fecha;
             document.cookie = "email=" + document.getElementById("email").value + "; expires=" + fecha;
         }
 
-        // Show the cookies in a p tag
+        // function to show cookies
         function showCookies(){
-            if (document.contains(document.getElementsByTagName("p")[0])) {
-                document.getElementsByTagName("p")[0].remove();
-            }
-            cooks = cookieObject()
-            var paragragh = document.createElement("p");
-            document.getElementsByTagName("body")[0].appendChild(paragragh);
-            span = document.createElement("span");
-            text = document.createTextNode(`Email: ${cooks.email.toUpperCase()} - Firstname: ${cooks.firstname.toUpperCase()}`);
-            span.appendChild(text);
-            paragragh.appendChild(span);
+            // creating tags            
+            var element = document.getElementsByTagName("body")[0];
+            var p = document.createElement("p");
+
+            // getting cookies
+            let email = getCookie("email");
+            let firstname = getCookie("firstname");
+
+            // creating text node
+            text = document.createTextNode(`Email: ${email} - Firstname: ${firstname}`);
+
+            // appending tags
+            p.appendChild(text);
+            element.appendChild(p);
         }
 
-        // function to get the cookies
         function getCookie(name){
-            cookieObj = cookieObject();
+            myCookies = convertCookies(document.cookie);
+            result = "";
 
-            if (cookieObj.firstname === name){
-                return(cookieObj.firstname);
-            } else {
-                return("");
+            if (myCookies[name]){
+                result = myCookies[name];
             }
+            return result;
+        }
+
+        // function to convert cookies str into obj types
+        function convertCookies(str){
+            str = str.split('; ');
+            var result = {};    
+            for (var i = 0; i < str.length; i++) {
+                var cur = str[i].split('=');
+                result[cur[0]] = cur[1];
+            }
+            return(result);
         }
 
     </script>
