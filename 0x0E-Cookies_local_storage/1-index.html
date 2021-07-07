@@ -28,8 +28,8 @@
             day10 = day10.setDate(day10.getDate() + 10);
             fecha = new Date(day10);
             fecha = fecha.toUTCString();
-            document.cookie = "firstname=" + document.getElementById("firstname").value + "; expires=" + fecha;
-            document.cookie = "email=" + document.getElementById("email").value + "; expires=" + fecha;
+            document.cookie = "firstname=" + document.getElementById("firstname").value + "; expires=" + fecha + "; path=/1-index.html;";
+            document.cookie = "email=" + document.getElementById("email").value + "; expires=" + fecha + "; path=/1-index.html;";
         }
 
         // function to show cookies
