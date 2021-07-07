@@ -4,48 +4,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1-index</title>
+    <title>1-index.html</title>
 </head>
 <body>
+
     <h1>Login to the website</h1>
-    <input id="firstname" placeholder="firstname" type="text"><input id="email" placeholder="email" type="text">
+
+    <!-- input tags wuth type='text' -->
+    <input id="firstname" placeholder="firstname" type="text">
+    <input id="email" placeholder="email" type="text">
+
+    <!-- buttons and cookies title -->
     <button onclick="setCookies()">Log me in</button>
     <h1>Cookies</h1>
     <button onclick="showCookies()">Show the cookies</button>
+
+    <!-- script -->
     <script type="application/javascript">
+       
+       // function to set cookies
         function setCookies(){
-            day14 = new Date();
-            day14 = day14.setDate(day14.getDate() + 10);
-            fecha = new Date(day14);
+            day10 = new Date();
+            day10 = day10.setDate(day10.getDate() + 10);
+            fecha = new Date(day10);
             fecha = fecha.toUTCString();
             document.cookie = "firstname=" + document.getElementById("firstname").value + "; expires=" + fecha;
             document.cookie = "email=" + document.getElementById("email").value + "; expires=" + fecha;
         }
 
+        // function to show cookies
         function showCookies(){
-            if (document.contains(document.getElementsByTagName("p")[0])) {
-                document.getElementsByTagName("p")[0].remove();
-            }
-            const cooks = document.cookie.split(';').map(function(c) {
-                return c.trim().split('=').map(decodeURIComponent);
-                }).reduce(function(a, b) {
-                try {
-                    a[b[0]] = JSON.parse(b[1]);
-                } catch (e) {
-                    a[b[0]] = b[1];
-                }
-                return a;
-             }, {});
-            var paragragh = document.createElement("p");
-            document.getElementsByTagName("body")[0].appendChild(paragragh);
-            
-            for(const property in cooks){
+            myCookies = convertCookies(document.cookie);
+            var element = document.getElementsByTagName("body")[0];
+            const p = document.createElement("p");
+
+            for(const property in myCookies){
                 span = document.createElement("li")
-                text = document.createTextNode(`${property}: ${cooks[property]}`);
+                span.style.listStyle = "none";
+                text = document.createTextNode(`${property}: ${myCookies[property]}`);
                 span.appendChild(text)
-                document.getElementsByTagName("p")[0].appendChild(span);
+                p.appendChild(span);
+                // console.log(`${property}: ${myCookies[property]}`);
             }
+            element.appendChild(p);
         }
+
+        // function to convert cookies str into obj types
+        function convertCookies(str){
+            str = str.split('; ');
+            var result = {};    
+            for (var i = 0; i < str.length; i++) {
+                var cur = str[i].split('=');
+                result[cur[0]] = cur[1];
+            }
+            return(result);
+        }
+
     </script>
 </body>
 </html>
