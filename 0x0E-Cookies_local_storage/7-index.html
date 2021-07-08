@@ -83,12 +83,15 @@
 
         // function to display the cart
         function displayCart () {
-            var h2 = document.createElement("h2");
             var my_div = document.getElementById("my_div");
             if (my_div != null){
-                if (document.getElementsByTagName("ul")[1]){
-                    var ul = document.getElementsByTagName("ul")[1];
+                if (document.getElementById("ul_1")){
+                    var ul = document.getElementById("ul_1");
                     ul.parentNode.removeChild(ul);
+                }
+                if (document.getElementsByTagName("h2")[1]){
+                    h2 = document.getElementsByTagName("h2")[1];
+                    h2.parentNode.removeChild(h2);
                 }
             }
             else{
@@ -96,15 +99,17 @@
                 my_div.id = "my_div";
             }
 
-            h2.appendChild(document.createTextNode("Your cart:"));
-            element.appendChild(h2);
             element.appendChild(my_div);
             updateCart();
         }
 
+        // function to update the cart
         function updateCart(){
             var my_div = document.getElementById("my_div");
+            var h2 = document.createElement("h2");
+            h2.appendChild(document.createTextNode("Your cart:"));
             ul = document.createElement("ul");
+            ul.id = "ul_1";
             cart = getCartFromStorage();
 
             if (cart == {}){
@@ -123,7 +128,7 @@
                     li = document.createElement("li");
                     a = document.createElement("a");
 
-                    text = document.createTextNode(`${property} x ${cart[property]}`);
+                    text = document.createTextNode(`${property} x ${cart[property]} `);
                     a.style.textDecoration = "none";
 
                     a.appendChild(document.createTextNode("(remove)"))
@@ -136,6 +141,7 @@
                     ul.appendChild(li);
                 }
             }
+            my_div.appendChild(h2);
             my_div.appendChild(ul)
             element.appendChild(my_div);
         }
